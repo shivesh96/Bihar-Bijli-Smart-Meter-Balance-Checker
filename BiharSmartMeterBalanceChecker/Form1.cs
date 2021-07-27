@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HtmlAgilityPack;
 
 namespace BiharSmartMeterBalanceChecker
 {
@@ -32,14 +31,18 @@ namespace BiharSmartMeterBalanceChecker
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            if (webBrowser1.Document.GetElementById("MainContent_txtCurrentblnce").GetAttribute("value") == "")
+            if (webBrowser1.Document.GetElementById("MainContent_lblcb") != null) {
+                ttText1.Text = webBrowser1.Document.GetElementById("MainContent_lblcb").InnerText;
+            } else if (webBrowser1.Document.GetElementById("MainContent_txtCurrentblnce").GetAttribute("value") == "")
             {
+                ttText1.Text = "Getting Balance...";
                 webBrowser1.Document.GetElementById("MainContent_txtConID").InnerText = txt_consumer_id.Text.Trim();
                 webBrowser1.Document.GetElementById("MainContent_btnCurrentblnce").InvokeMember("Click");
             }
             else
             {
-                dataGridView1.Rows.Add(DateTime.Now.ToString(), webBrowser1.Document.GetElementById("MainContent_txtCurrentblnce").GetAttribute("value"));
+                ttText1.Text = "Success";
+                dataGridView1.Rows.Insert(0, txt_consumer_id.Text.Trim(), DateTime.Now.ToString(), webBrowser1.Document.GetElementById("MainContent_txtCurrentblnce").GetAttribute("value"));                
             }
         }
     }

@@ -29,14 +29,19 @@ namespace BiharSmartMeterBalanceChecker
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbl_consumer_id = new System.Windows.Forms.Label();
             this.txt_consumer_id = new System.Windows.Forms.TextBox();
             this.btn_fetch = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ttText1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.col_consumer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_consumer_id
@@ -79,14 +84,38 @@ namespace BiharSmartMeterBalanceChecker
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_consumer,
             this.col_date,
             this.col_balance});
             this.dataGridView1.Location = new System.Drawing.Point(26, 56);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(361, 170);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ttText1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 216);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(410, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // ttText1
+            // 
+            this.ttText1.Name = "ttText1";
+            this.ttText1.Size = new System.Drawing.Size(48, 17);
+            this.ttText1.Text = "Ready...";
+            // 
+            // col_consumer
+            // 
+            this.col_consumer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col_consumer.HeaderText = "Consumer";
+            this.col_consumer.Name = "col_consumer";
             // 
             // col_date
             // 
@@ -107,14 +136,19 @@ namespace BiharSmartMeterBalanceChecker
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 238);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.btn_fetch);
             this.Controls.Add(this.txt_consumer_id);
             this.Controls.Add(this.lbl_consumer_id);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Bihar Smart Meter Balance Checker";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,6 +161,9 @@ namespace BiharSmartMeterBalanceChecker
         private System.Windows.Forms.Button btn_fetch;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel ttText1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_consumer;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_balance;
     }
